@@ -9,88 +9,74 @@
             --pink: #FF007F;
             --cyan: #00FFFF;
             --gold: #FFD700;
+            --green: #2ECC71;
             --glass: rgba(255, 255, 255, 0.08);
             --bg: #050005;
         }
 
         body {
             margin: 0; padding: 0; background: var(--bg); color: white;
-            font-family: 'Helvetica Neue', sans-serif; overflow-x: hidden;
-            text-align: center; scroll-behavior: smooth;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            overflow-x: hidden; text-align: center; scroll-behavior: smooth;
         }
 
-        /* --- FONDO COSMOS & GLOBO 3D REALISTA --- */
-        #universe {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -3;
-            background: radial-gradient(circle at center, #1a001a 0%, #000 100%);
+        /* --- EL GLOBO GIRATORIO (ULTRA-VISIBLE & RÁPIDO) --- */
+        #universe-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+            display: flex; justify-content: center; align-items: center; background: black;
         }
 
-        /* GLOBO 3D CENTRADO */
-        .globe-3d {
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 75vmax; height: 75vmax; border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, var(--cyan), var(--pink), transparent);
-            filter: blur(80px); opacity: 0.25; animation: rotateGlobe 20s linear infinite; z-index: -2;
+        .globe-visual {
+            width: 75vmax; height: 75vmax;
+            border-radius: 50%;
+            background: 
+                repeating-linear-gradient(90deg, transparent 0, transparent 40px, rgba(0, 255, 255, 0.1) 40px, rgba(0, 255, 255, 0.1) 41px),
+                repeating-linear-gradient(0deg, transparent 0, transparent 40px, rgba(255, 0, 127, 0.1) 40px, rgba(255, 0, 127, 0.1) 41px),
+                radial-gradient(circle at 30% 30%, var(--cyan) 0%, var(--pink) 60%, #111 100%);
+            box-shadow: inset -50px -50px 100px rgba(0,0,0,0.9), 0 0 60px rgba(255, 0, 127, 0.2);
+            animation: rotateFast 8s linear infinite;
         }
 
-        @keyframes rotateGlobe { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+        @keyframes rotateFast { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-        /* --- PERRITOS ESCOLTA (ARRIBA) --- */
-        .dog-escort { position: absolute; top: 20px; font-size: 4rem; z-index: 10; animation: float 3s ease-in-out infinite alternate; }
-        .chihuahua { left: 15%; }
-        .beagle { right: 15%; }
+        /* --- BRANDING --- */
+        header { padding: 80px 20px 60px; position: relative; z-index: 5; }
+        .brand { font-size: 2.2rem; color: var(--gold); letter-spacing: 12px; font-weight: bold; text-shadow: 0 0 25px var(--gold); text-transform: uppercase; margin: 0; }
+        .slogan { color: var(--pink); letter-spacing: 5px; font-weight: bold; margin-top: 15px; text-shadow: 0 0 10px var(--pink); }
 
-        @keyframes float { from { transform: translateY(0); } to { transform: translateY(-15px); } }
-
-        /* --- CONTENIDO --- */
-        header { padding: 100px 20px 50px; position: relative; }
-        .brand { font-size: 2.2rem; color: var(--gold); letter-spacing: 15px; font-weight: bold; text-shadow: 0 0 25px var(--gold); margin: 0; }
-        .slogan { color: var(--pink); letter-spacing: 5px; font-weight: bold; margin-top: 10px; text-shadow: 0 0 10px var(--pink); }
-
-        /* GRID UNIFORME DE TARJETAS */
-        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        /* --- GRID UNIFORME --- */
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 0 20px 100px; position: relative; z-index: 1; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; align-items: stretch; }
         
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 25px; 
-            align-items: stretch; /* Esto hace que todas las tarjetas midan lo mismo */
-        }
-
         .card {
-            background: var(--glass); backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.1); padding: 35px; border-radius: 25px;
+            background: var(--glass); backdrop-filter: blur(25px);
+            border: 1px solid rgba(255,255,255,0.1); padding: 35px; border-radius: 30px;
             text-align: left; transition: 0.4s; display: flex; flex-direction: column;
-            justify-content: space-between;
         }
-        .card:hover { border-color: var(--pink); transform: translateY(-10px) scale(1.02); box-shadow: 0 0 30px rgba(255, 0, 127, 0.2); }
+        .card:hover { border-color: var(--cyan); transform: translateY(-10px); background: rgba(255, 255, 255, 0.12); }
 
-        h3 { color: var(--cyan); text-transform: uppercase; letter-spacing: 2px; margin-top: 0; font-size: 1.1rem; }
-        p { font-size: 0.95rem; line-height: 1.6; opacity: 0.9; flex-grow: 1; }
+        h3 { color: var(--cyan); text-transform: uppercase; letter-spacing: 2px; margin: 0 0 15px 0; font-size: 1.1rem; }
+        p { font-size: 0.95rem; line-height: 1.6; opacity: 0.9; margin: 0; flex-grow: 1; }
 
-        /* MONITOR (TARJETA ESPECIAL) */
+        /* MONITOR & BOTONES */
         .monitor-card { border: 1px solid var(--cyan); text-align: center; }
-        .bar { width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; margin: 15px 0; overflow: hidden; }
+        .bar { width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; margin: 20px 0; overflow: hidden; }
         .fill { width: 88%; height: 100%; background: linear-gradient(90deg, var(--pink), var(--cyan)); }
-
-        /* BOTONES */
-        .btn { display: inline-block; margin-top: 15px; padding: 10px 20px; border: 1px solid white; color: white; text-decoration: none; border-radius: 50px; font-size: 0.8rem; text-align: center; }
+        .btn { display: inline-block; margin-top: 20px; padding: 12px 25px; border: 1px solid white; color: white; text-decoration: none; border-radius: 50px; font-size: 0.8rem; text-align: center; text-transform: uppercase; transition: 0.3s; }
         .btn:hover { background: white; color: black; }
 
         /* GLITTER */
         .glitter { position: absolute; width: 6px; height: 6px; border-radius: 50%; pointer-events: none; animation: spark 1s forwards; z-index: 1000; }
         @keyframes spark { to { opacity: 0; transform: translateY(50px) scale(0); } }
-
     </style>
 </head>
 <body>
 
-    <div id="universe"></div>
-    <div class="globe-3d"></div>
+    <div id="universe-container">
+        <div class="globe-visual"></div>
+    </div>
 
     <header>
-        <div class="dog-escort chihuahua">🐕</div>
-        <div class="dog-escort beagle">🐶</div>
         <h1 class="brand">COSMIC CAPITAL</h1>
         <div class="slogan">NO CAP WE ON TOP</div>
     </header>
@@ -111,45 +97,40 @@
 
             <div class="card">
                 <h3>Strategic Papers</h3>
-                <p>Research on global justice, digital power shifts, and the new world order. Intellectual capital at its finest.</p>
-                <a href="#" class="btn">Read Archive</a>
+                <p>Advanced research on global justice, digital power shifts, and the new world order. Intellectual capital.</p>
+                <a href="#" class="btn">Archive</a>
             </div>
 
-            <div class="card">
-                <h3>Aesthetic Intelligence</h3>
-                <p>Decoding the semiotics of style. Hair rituals, power dressing, and high-impact visual presence.</p>
+            <div class="card" style="border: 1px solid var(--green);">
+                <h3 style="color: var(--green);">Eco-Strategy</h3>
+                <p>Environmental geopolitics and the future of sustainable survival. Applied intelligence for the planet.</p>
             </div>
 
             <div class="card" style="border: 1px solid var(--pink);">
                 <h3 style="color: var(--pink);">Amazon Essentials</h3>
-                <p>Curated tools and products for a strategic Glow Up. From skincare to biohacking essentials.</p>
-                <a href="#" class="btn">Shop My Lists</a>
-            </div>
-
-            <div class="card">
-                <h3>Cosmic Paws</h3>
-                <p>Strategic pet care and health protocols for your loyal Chihuahua and Beagle allies.</p>
+                <p>Curated tools and products for a strategic Glow Up. High-impact presence and radiant energy.</p>
+                <a href="#" class="btn">Glow Up List</a>
             </div>
 
             <div class="card">
                 <h3>Cosmic Pop Station</h3>
                 <p>The curated soundtrack of the empire. Geopolitical vibes and high-energy pop playlists.</p>
-                <a href="#" class="btn">Open Spotify</a>
+                <a href="#" class="btn">Spotify</a>
+            </div>
+
+            <div class="card">
+                <h3>Aesthetic Intelligence</h3>
+                <p>The semiotics of power dressing. Hair rituals and style as a strategic communication tool.</p>
+            </div>
+
+            <div class="card">
+                <h3>Cosmic Paws</h3>
+                <p>Strategic care protocols for your loyal companions. Discipline meets pure loyalty.</p>
             </div>
 
             <div class="card">
                 <h3 style="color: #ff1801;">Pit Stop & F1</h3>
-                <p>Telemetry, strategy, and the adrenaline of Formula 1. Analysis of high-speed performance.</p>
-            </div>
-
-            <div class="card">
-                <h3>Odd Sports Lab</h3>
-                <p>Exploration of unconventional competitions. Because the elite thrives in the unique.</p>
-            </div>
-
-            <div class="card">
-                <h3 style="color: #2ECC71;">Eco-Strategy</h3>
-                <p>Environmental geopolitics and the future of sustainable survival in a cosmic world.</p>
+                <p>Telemetry, race craft, and the adrenaline of Formula 1. High-speed performance analysis.</p>
             </div>
 
         </div>
