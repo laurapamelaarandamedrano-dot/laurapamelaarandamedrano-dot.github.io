@@ -28,20 +28,27 @@
         }
         @keyframes moveBg { from { background-position: 0 0; } to { background-position: 1000px 1000px; } }
 
-        .hero { padding: 100px 20px; }
+        .hero { padding: 100px 5vw; box-sizing: border-box; }
+        
         h1 {
-            font-size: 5.5vw; white-space: nowrap; letter-spacing: 1vw;
+            font-size: 5vw; white-space: nowrap; letter-spacing: 0.5vw;
             color: var(--pink-neon); text-transform: uppercase;
             filter: drop-shadow(0 0 15px var(--pink-neon));
             animation: float 4s ease-in-out infinite alternate;
-            margin: 0;
+            margin: 0; width: 100%;
         }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 4.8vw; letter-spacing: 0.2vw; }
+            .hero { padding: 80px 10px; }
+        }
+
         .cosmic-title { color: var(--gold); font-weight: bold; letter-spacing: 8px; font-size: 1.2rem; }
 
         @keyframes float { from { transform: translateY(0); } to { transform: translateY(-10px); } }
 
         section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         
         .card {
             background: var(--glass); border: 1px solid rgba(255,255,255,0.1);
@@ -50,15 +57,13 @@
         }
         .card:hover { border-color: white; transform: scale(1.02); }
 
-        /* MONITOR DE BALANCE */
         .balance-bar {
             width: 100%; height: 10px; background: rgba(255,255,255,0.1);
             border-radius: 5px; margin: 10px 0; overflow: hidden;
         }
         .progress {
             height: 100%; background: linear-gradient(90deg, var(--pink-neon), var(--cyan-digital));
-            width: 85%; /* Nivel de balance actual */
-            animation: pulseProgress 2s infinite alternate;
+            width: 85%; animation: pulseProgress 2s infinite alternate;
         }
         @keyframes pulseProgress { from { opacity: 0.8; } to { opacity: 1; box-shadow: 0 0 10px var(--cyan-digital); } }
 
@@ -90,41 +95,23 @@
         <div class="card" style="text-align: center;">
             <p>Current Cosmic Alignment: <b>Optimal</b></p>
             <div class="balance-bar"><div class="progress"></div></div>
-            <p style="font-size: 0.8rem; opacity: 0.6;">Balancing academia, aesthetics, and global strategy.</p>
         </div>
     </section>
 
     <section>
         <div class="card" style="border: 2px solid var(--pink-neon); text-align: center;">
-            <h2 style="color: var(--pink-neon)">NO CAP WE ON TOP</h2>
+            <h2 style="color: var(--pink-neon)">BOOK: NO CAP WE ON TOP</h2>
             <p>A geopolitical guide for the generation that is redefining everything.</p>
-            <span class="btn" style="color: var(--pink-neon); border-color: var(--pink-neon);">Coming Soon</span>
         </div>
     </section>
 
     <section>
         <div class="grid">
-            <div class="card">
-                <h3 style="color: var(--gold)">Aesthetic Intel</h3>
-                <p>Style combinations and hair rituals for the high-impact intellectual.</p>
-            </div>
-            <div class="card">
-                <h3 style="color: var(--white-core)">The Archive</h3>
-                <p>Strategic papers on global justice and digital power shifts.</p>
-                <a href="#" class="btn">View Papers</a>
-            </div>
-            <div class="card">
-                <h3 style="color: var(--green-eco)">Eco-Strategy</h3>
-                <p>Geopolitics applied to environmental survival and sustainability.</p>
-            </div>
-            <div class="card">
-                <h3 style="color: var(--cyan-digital)">Cosmic Paws</h3>
-                <p>Pet care and health tips for your most loyal strategic allies.</p>
-            </div>
-            <div class="card">
-                <h3 style="color: #ff1801">Pit Stop</h3>
-                <p>F1 telemetry and odd sports: The adrenaline of unconventional competition.</p>
-            </div>
+            <div class="card"><h3 style="color: var(--gold)">Aesthetic Intel</h3><p>Style combinations and hair rituals.</p></div>
+            <div class="card"><h3 style="color: var(--white-core)">The Archive</h3><p>Strategic papers and publications.</p></div>
+            <div class="card"><h3 style="color: var(--green-eco)">Eco-Strategy</h3><p>Environmental geopolitics.</p></div>
+            <div class="card"><h3 style="color: var(--cyan-digital)">Cosmic Paws</h3><p>Expert pet care tips.</p></div>
+            <div class="card"><h3 style="color: #ff1801">Pit Stop</h3><p>F1 Strategy & Odd Sports.</p></div>
         </div>
     </section>
 
