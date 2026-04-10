@@ -26,8 +26,6 @@ Setting a new standard in academia: one where intellectual excellence blends wit
 3.  **Aesthetic Logistics:** The intersection of lifestyle, mental resilience, and soft power.
 
 ## ✉️ Connect with the Future
-* **LinkedIn:** [Tu link aquí]
-* **Email:** [Tu correo aquí]
-
+https://www.lpamglobalresearchlab.com/
 ---
 > "Knowledge should never be elitist; it should be everywhere."
