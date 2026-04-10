@@ -3,240 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laura Pamela Aranda Medrano | Cosmic Capital</title>
+    <title>Laura Pamela Aranda Medrano | Cosmic Balance</title>
     <style>
-        /* --- CORE CÓSMICO (ADN DEL DISEÑO) --- */
         :root {
-            --bg-deep: #000000; /* Negro absoluto */
-            --pink-futuristic: #FF007F; /* Rosa Neón Intenso */
-            --cyan-digital: #00FFFF; /* Revolución Digital */
-            --gold-cosmic: #FFD700; /* Capitalismo */
-            --white-core: #FFFFFF;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glow-pink: 0 0 20px rgba(255, 0, 127, 0.6);
-            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        html {
-            scroll-behavior: smooth; /* Desplazamiento suave entre secciones */
+            --pink-neon: #FF007F;
+            --cyan-digital: #00FFFF;
+            --gold: #FFD700;
+            --green-eco: #2ECC71;
+            --bg: #000000;
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-deep);
-            color: var(--white-core);
+            margin: 0; background: var(--bg); color: white;
             font-family: 'Helvetica Neue', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
-            text-align: center;
+            overflow-x: hidden; text-align: center;
+            scroll-behavior: smooth;
         }
 
-        /* --- FONDO DE ESTRELLAS ANIMADO --- */
-        #starfield {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 1px, transparent 2px),
-                radial-gradient(white, rgba(255,255,255,.15) 1.5px, transparent 2.5px);
-            background-size: 550px 550px, 350px 350px;
-            animation: starScroll 150s linear infinite;
+        #stars {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; background: radial-gradient(circle at center, #0a0a0a, #000);
+            animation: moveBg 120s linear infinite;
         }
+        @keyframes moveBg { from { background-position: 0 0; } to { background-position: 1000px 1000px; } }
 
-        @keyframes starScroll {
-            from { background-position: 0 0, 40px 60px; }
-            to { background-position: -1000px -1000px, -960px -940px; }
-        }
-
-        /* --- SISTEMA DE GLITTER INTERACTIVO (CSS) --- */
-        .glitter {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0.8;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-            animation: glitterFade 1s ease-out forwards;
-            z-index: 9999;
-        }
-
-        @keyframes glitterFade {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: translateY(50px) scale(0); opacity: 0; }
-        }
-
-        /* --- MAQUETACIÓN GENERAL --- */
-        section {
-            width: 100%;
-            max-width: 1100px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 20px;
-            box-sizing: border-box;
-        }
-
-        h2.section-title {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-bottom: 3rem;
-            color: var(--pink-futuristic);
-            text-shadow: var(--glow-pink);
-        }
-
-        /* --- 1. PORTADA (SOLUCIÓN AL NOMBRE) --- */
-        #home {
-            position: relative;
-        }
-
-        .cosmic-capital-tag {
-            font-size: 1.1rem;
-            color: var(--gold-cosmic);
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-bottom: 1rem;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
-
-        /* SOLUCIÓN AL NOMBRE: Tamaño responsivo basado en el ancho de pantalla (vw) */
+        .hero { padding: 100px 20px; }
         h1 {
-            font-size: 5.5vw; /* Se ajusta automáticamente al ancho de la pantalla */
-            letter-spacing: 1vw; /* Espaciado también responsivo */
-            text-transform: uppercase;
+            font-size: 5.5vw; white-space: nowrap; letter-spacing: 1vw;
+            color: var(--pink-neon); text-transform: uppercase;
+            filter: drop-shadow(0 0 15px var(--pink-neon));
+            animation: float 4s ease-in-out infinite alternate;
             margin: 0;
-            color: var(--white-core);
-            white-space: nowrap; /* Fuerza una sola línea */
-            animation: pulseWhite 4s ease-in-out infinite alternate;
         }
+        .cosmic-title { color: var(--gold); font-weight: bold; letter-spacing: 8px; font-size: 1.2rem; }
 
-        /* Aseguramos un tamaño mínimo y máximo para que no se vea raro */
-        @media (min-width: 1200px) { h1 { font-size: 4rem; letter-spacing: 12px; } }
-        @media (max-width: 480px) { h1 { font-size: 6vw; letter-spacing: 3px; } }
+        @keyframes float { from { transform: translateY(0); } to { transform: translateY(-10px); } }
 
-        @keyframes pulseWhite {
-            from { text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); }
-            to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.6); }
-        }
-
-        .manifesto-tag {
-            background: var(--glass-bg);
-            padding: 12px 25px;
-            border-radius: 50px;
-            border: 1px solid var(--glass-border);
-            color: var(--cyan-digital);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: inline-block;
-            margin-top: 3rem;
-            backdrop-filter: blur(5px);
-        }
-
-        /* --- ESTILOS DE TARJETAS (GRIDS) --- */
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            width: 100%;
-        }
-
+        section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        
         .card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 16px;
-            border: 1px solid var(--glass-border);
-            text-align: left;
-            transition: var(--transition-smooth);
-            display: flex;
-            flex-direction: column;
+            background: var(--glass); border: 1px solid rgba(255,255,255,0.1);
+            padding: 25px; border-radius: 20px; backdrop-filter: blur(15px);
+            transition: 0.3s; text-align: left;
         }
+        .card:hover { border-color: white; transform: scale(1.02); }
 
-        .card:hover {
-            border-color: rgba(255, 0, 127, 0.3);
-            background: rgba(255, 0, 127, 0.02);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 0, 127, 0.1);
+        /* MONITOR DE BALANCE */
+        .balance-bar {
+            width: 100%; height: 10px; background: rgba(255,255,255,0.1);
+            border-radius: 5px; margin: 10px 0; overflow: hidden;
         }
-
-        .card h3 {
-            margin: 0 0 15px 0;
-            color: var(--white-core);
-            font-size: 1.4rem;
-            letter-spacing: 1px;
+        .progress {
+            height: 100%; background: linear-gradient(90deg, var(--pink-neon), var(--cyan-digital));
+            width: 85%; /* Nivel de balance actual */
+            animation: pulseProgress 2s infinite alternate;
         }
+        @keyframes pulseProgress { from { opacity: 0.8; } to { opacity: 1; box-shadow: 0 0 10px var(--cyan-digital); } }
 
-        .card p {
-            margin: 0;
-            color: #CCCCCC;
-            font-size: 1rem;
-            line-height: 1.6;
-            flex-grow: 1; /* Empuja el link hacia abajo */
+        .btn {
+            display: inline-block; margin-top: 15px; padding: 10px 20px;
+            border: 1px solid white; color: white; text-decoration: none;
+            border-radius: 50px; font-size: 0.75rem; transition: 0.3s;
         }
+        .btn:hover { background: white; color: black; }
 
-        .card-link {
-            color: var(--cyan-digital);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 20px;
-            display: inline-block;
+        .glitter {
+            position: absolute; width: 6px; height: 6px; border-radius: 50%;
+            pointer-events: none; animation: spark 1s forwards; z-index: 1000;
         }
-
-        /* --- SECCIÓNES ESPECÍFICAS --- */
-        #geopolitics h2 { color: var(--gold-cosmic); text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
-        #rituals h2 { color: var(--pink-futuristic); }
-        #station h2 { color: var(--cyan-digital); text-shadow: 0 0 15px rgba(0, 255, 255, 0.5); }
-
+        @keyframes spark { to { opacity: 0; transform: translateY(40px) scale(0); } }
     </style>
 </head>
 <body>
+    <div id="stars"></div>
 
-    <div id="starfield"></div>
-
-    <section id="home">
-        <div class="cosmic-capital-tag">Cosmic Capital</div>
-        
+    <div class="hero">
+        <div class="cosmic-title">COSMIC CAPITAL</div>
         <h1>Laura Pamela Aranda Medrano</h1>
-        
-        <p style="max-width: 600px; line-height: 1.8; color: #ccc; font-size: 1.1rem; margin-top: 20px;">
-            Intellectual excellence blends with pop culture flair and the strategic vision of a generation. Rewriting the world in a global, pop-infused, and transformative key.
-        </p>
-        
-        <div class="manifesto-tag">The New Standard in Academia</div>
+        <p style="letter-spacing: 4px; opacity: 0.7;">NO CAP WE ON TOP</p>
+    </div>
+
+    <section id="balance">
+        <h2 style="color: var(--cyan-digital)">Energy & Focus Monitor</h2>
+        <div class="card" style="text-align: center;">
+            <p>Current Cosmic Alignment: <b>Optimal</b></p>
+            <div class="balance-bar"><div class="progress"></div></div>
+            <p style="font-size: 0.8rem; opacity: 0.6;">Balancing academia, aesthetics, and global strategy.</p>
+        </div>
     </section>
 
-    <section id="geopolitics">
-        <h2 class="section-title">Strategic Research</h2>
-        <div class="content-grid">
+    <section>
+        <div class="card" style="border: 2px solid var(--pink-neon); text-align: center;">
+            <h2 style="color: var(--pink-neon)">NO CAP WE ON TOP</h2>
+            <p>A geopolitical guide for the generation that is redefining everything.</p>
+            <span class="btn" style="color: var(--pink-neon); border-color: var(--pink-neon);">Coming Soon</span>
+        </div>
+    </section>
+
+    <section>
+        <div class="grid">
             <div class="card">
-                <h3>Cosmic Capitalism Manifesto</h3>
-                <p>Analyzing how digital value systems and cosmic aesthetics create new geopolitical leverage beyond traditional borders.</p>
-                <a href="#" class="card-link">Read Publication →</a>
+                <h3 style="color: var(--gold)">Aesthetic Intel</h3>
+                <p>Style combinations and hair rituals for the high-impact intellectual.</p>
             </div>
             <div class="card">
-                <h3>Gen Z Soft Power</h3>
-                <p>Examining the strategic influence of viral trends, narratives, and digital culture on global justice movements.</p>
-                <a href="#" class="card-link">Read Publication →</a>
+                <h3 style="color: var(--white-core)">The Archive</h3>
+                <p>Strategic papers on global justice and digital power shifts.</p>
+                <a href="#" class="btn">View Papers</a>
+            </div>
+            <div class="card">
+                <h3 style="color: var(--green-eco)">Eco-Strategy</h3>
+                <p>Geopolitics applied to environmental survival and sustainability.</p>
+            </div>
+            <div class="card">
+                <h3 style="color: var(--cyan-digital)">Cosmic Paws</h3>
+                <p>Pet care and health tips for your most loyal strategic allies.</p>
+            </div>
+            <div class="card">
+                <h3 style="color: #ff1801">Pit Stop</h3>
+                <p>F1 telemetry and odd sports: The adrenaline of unconventional competition.</p>
             </div>
         </div>
     </section>
 
-    <section id="rituals">
-        <h2 class="section-title">Cosmic Rituals</h2>
-        <div class="content-grid">
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const spark = document.createElement('div');
+            spark.className = 'glitter';
+            spark.style.left = e.pageX + 'px';
+            spark.style.top = e.pageY + 'px';
+            const colors = ['#FF007F', '#00FFFF', '#FFD700', '#2ECC71', '#FFFFFF'];
+            spark.style.background = colors[Math.floor(Math.random()*colors.length)];
+            document.body.appendChild(spark);
+            setTimeout(() => spark.remove(), 1000);
+        });
+    </script>
+</body>
+</html>
