@@ -21,6 +21,7 @@
             overflow-x: hidden; line-height: 1.6;
         }
 
+        /* --- BACKGROUND ENGINE --- */
         #bg-canvas {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
             background: radial-gradient(circle at center, #0a0a15 0%, #000 100%);
@@ -45,6 +46,7 @@
         .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 25px; align-items: stretch; }
 
+        /* CARDS */
         .card {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(45px);
@@ -61,8 +63,7 @@
         .paper-title { display: block; font-weight: 600; font-size: 0.85rem; color: #fff; line-height: 1.3; }
         .paper-meta { display: block; font-size: 0.65rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
         .paper-link { color: var(--secondary); text-decoration: none; font-size: 0.7rem; font-weight: 700; margin-top: 8px; display: inline-block; transition: 0.3s; }
-        .paper-link:hover { opacity: 0.7; }
-
+        
         .monitor-wrap { text-align: center; max-width: 600px; margin: 0 auto 60px; }
         .bar-container { width: 100%; height: 4px; background: rgba(255,255,255,0.1); margin: 20px 0; border-radius: 2px; }
         .bar-active { width: 88%; height: 100%; background: var(--accent); box-shadow: 0 0 15px var(--accent); }
@@ -92,14 +93,53 @@
 
         <div class="grid">
             
-            <div class="card">
-                <h3>Executive Profile</h3>
-                <p style="font-size: 1.1rem; color: var(--gold); margin-bottom: 10px;">Global Strategist & Academic Researcher</p>
-                <p style="opacity: 0.7; font-size: 0.85rem;">Published author and YOUNGA Youth Delegate. Bridging AI-driven political communication, cosmic law, and gender-inclusive global governance with high-performance aesthetics.</p>
+            <div class="card" style="grid-column: 1 / -1; border: 1px solid var(--accent); background: rgba(0, 255, 255, 0.02);">
+                <h3 style="color: var(--accent);">UN for Dummies: The Global Group Chat 🌎</h3>
+                <p style="font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 25px; opacity: 0.6;">Dossier #001: International Governance but make it understandable.</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: left;">
+                    
+                    <div style="padding: 20px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
+                        <h4 style="color: var(--gold); margin-top: 0;">The General Assembly (GA)</h4>
+                        <p style="font-size: 0.85rem; opacity: 0.8;">
+                            <b>The Vibe:</b> The ultimate global group chat. <br><br>
+                            All 193 countries discuss world tea (climate, peace). Every country gets 1 vote. Resolutions are <i>recommendations</i>, not hard laws.
+                        </p>
+                    </div>
+
+                    <div style="padding: 20px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
+                        <h4 style="color: var(--secondary); margin-top: 0;">The Security Council (UNSC)</h4>
+                        <p style="font-size: 0.85rem; opacity: 0.8;">
+                            <b>The Vibe:</b> The Admins with Kick Power. <br><br>
+                            Only 15 members. The "Big 5" (P5) have <b>Veto Power</b> to delete any resolution. They handle war and peace.
+                        </p>
+                    </div>
+
+                    <div style="padding: 20px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
+                        <h4 style="color: var(--accent); margin-top: 0;">The Secretary-General</h4>
+                        <p style="font-size: 0.85rem; opacity: 0.8;">
+                            <b>The Vibe:</b> The Neutral Manager. <br><br>
+                            The face of the UN. No army, but uses "The Bully Pulpit" to call out bad behavior and keep everyone from leaving the chat.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 1px dashed var(--glass-border); text-align: center;">
+                    <p style="font-size: 0.9rem; font-style: italic; opacity: 0.9;">
+                        "Basically, the UN is the only room where the whole world shows up to agree on rules so we don't end the world. It’s messy, but it's essential."
+                    </p>
+                    <button class="btn-primary" style="margin-top: 15px;">Read my Full Gender Reform Proposal</button>
+                </div>
             </div>
 
             <div class="card">
-                <h3>Published Journals & Articles</h3>
+                <h3>Executive Profile</h3>
+                <p style="font-size: 1.1rem; color: var(--gold); margin-bottom: 10px;">Global Strategist & Academic Researcher</p>
+                <p style="opacity: 0.7; font-size: 0.85rem;">Published author and YOUNGA Youth Delegate. Bridging AI-driven political communication, cosmic law, and inclusive global governance with high-performance aesthetics.</p>
+            </div>
+
+            <div class="card">
+                <h3>Journal Publications</h3>
                 <ul style="padding: 0; margin: 0;">
                     <li class="paper-item">
                         <span class="paper-title">Digital Democracy & Algorithmic Trust (2025)</span>
@@ -112,72 +152,47 @@
                         <a href="https://www.revistaabogacia.com/derecho-internacional-cosmico-y-la-colonizacion-de-marte/" target="_blank" class="paper-link">VIEW RESEARCH →</a>
                     </li>
                     <li class="paper-item">
-                        <span class="paper-title">Democracy & Representation Crisis: Latin America vs Nordic Model (2025)</span>
+                        <span class="paper-title">Latin America vs Nordic Model (2025)</span>
                         <span class="paper-meta">JUS Legal Journal (Indexed)</span>
                         <a href="https://doi.org/10.5281/zenodo.17112040" target="_blank" class="paper-link">VIEW RESEARCH →</a>
                     </li>
                     <li class="paper-item">
                         <span class="paper-title">Women, War & Global Governance (2024)</span>
                         <span class="paper-meta">Our GenPeace (UK)</span>
-                        <a href="https://www.ourgenpeace.com" target="_blank" class="paper-link">VIEW RESEARCH →</a>
-                    </li>
-                    <li class="paper-item">
-                        <span class="paper-title">Political Communication in the AI Era & Gen Z (2024)</span>
-                        <span class="paper-meta">Ombuds Electoral Journal</span>
-                        <a href="https://www.iem.org.mx/documentos/publicaciones/Ombuds/Ombuds%20Electoral%20Nueva%20Epoca/REVISTA_Ombuds_Electoral_6.pdf" target="_blank" class="paper-link">VIEW RESEARCH →</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Books & Keynote Intelligence</h3>
-                <ul style="padding: 0; margin: 0;">
-                    <li class="paper-item" style="border-left-color: var(--gold);">
-                        <span class="paper-title" style="color: var(--gold);">The Manifesto: No Tacos, No War (2024)</span>
-                        <span class="paper-meta">Amazon Kindle Edition</span>
-                        <a href="https://www.amazon.com.mx/Manifesto-Gen-Attempt-Researcher-Silence-ebook/dp/B0D6V6XGZW" target="_blank" class="paper-link" style="color: var(--gold);">ORDER ON AMAZON →</a>
-                    </li>
-                    <li class="paper-item">
-                        <span class="paper-title">"2040: A World Without Owners" (Keynote)</span>
-                        <span class="paper-meta">II International Congress of Legal Sciences, UMSNH</span>
-                    </li>
-                    <li class="paper-item">
-                        <span class="paper-title">Mental Health Global Agenda (Delegate)</span>
-                        <span class="paper-meta">YOUNGA in collaboration with United Nations</span>
-                    </li>
-                    <li class="paper-item">
-                        <span class="paper-title">The Return of Protectionism (2023)</span>
-                        <span class="paper-meta">ResearchGate</span>
-                        <a href="https://www.researchgate.net/publication/390544608_The_Return_of_Protectionism_Between_the_Ghosts_of_1929_and_the_New_Geoeconomic_Map" target="_blank" class="paper-link">VIEW ON RESEARCHGATE →</a>
                     </li>
                 </ul>
             </div>
 
             <div class="card" style="border-left: 3px solid var(--green);">
                 <h3 style="color: var(--green);">Eco-Strategy</h3>
-                <p style="opacity: 0.7; font-size: 0.85rem;">Environmental geopolitics and geoeconomic shifts. Analyzing regionalized technological competition and sustainable survival in a fragmented world.</p>
+                <p style="opacity: 0.7; font-size: 0.85rem;">Analyzing the intersection of environmental action and geoeconomic shifts. Focusing on regionalized technological competition and sustainable survival.</p>
+            </div>
+
+            <div class="card" style="border-color: var(--gold);">
+                <h3 style="color: var(--gold);">The Manifesto: No Tacos, No War</h3>
+                <p style="font-style: italic; color: #fff; font-size: 0.9rem;">"A Manifesto for a Generation That Refuses to Be Silent."</p>
+                <a href="https://www.amazon.com.mx/Manifesto-Gen-Attempt-Researcher-Silence-ebook/dp/B0D6V6XGZW" target="_blank" class="btn-primary" style="margin-top: 20px; border-color: var(--gold); color: var(--gold); text-align: center;">Order on Amazon</a>
             </div>
 
             <div class="card">
                 <h3 style="color: var(--secondary);">Amazon Essentials</h3>
-                <p style="opacity: 0.7; font-size: 0.85rem;">Tactical curation for high-impact performance. Biohacking, aesthetic intelligence, and professional tech gear.</p>
-                <button class="btn-primary" style="margin-top: 20px; border-color: var(--secondary); color: var(--secondary);">Open Curator Portal</button>
+                <p style="opacity: 0.7; font-size: 0.85rem;">Curated assets for high-impact performance. From biohacking essentials to tactical professional gear.</p>
             </div>
 
             <div class="card">
                 <h3>Cosmic Music Station</h3>
-                <p style="opacity: 0.7; font-size: 0.85rem;">Curated sonic landscapes. Geopolitical energy and high-frequency pop for deep focus.</p>
-                <button class="btn-primary" style="margin-top: 20px;">Open Spotify Portal</button>
+                <p style="opacity: 0.7; font-size: 0.85rem;">Sonic landscapes for focused performance. High-energy pop meets geopolitical vibes.</p>
+                <button class="btn-primary" style="margin-top: 20px;">Open Portal</button>
             </div>
 
             <div class="card">
                 <h3>Cosmic Paws Protocol</h3>
-                <p style="opacity: 0.7; font-size: 0.85rem;">Aesthetic and health protocols for elite Chihuahua and Beagle allies. Strategic loyalty maintenance.</p>
+                <p style="opacity: 0.7; font-size: 0.85rem;">Strategic welfare for elite companions. Loyalty and aesthetic care for Chihuahua and Beagle allies.</p>
             </div>
 
             <div class="card">
                 <h3>Performance Analytics (F1)</h3>
-                <p style="opacity: 0.7; font-size: 0.85rem;">Formula 1 telemetry as a metaphor for precision logistics and geopolitical maneuverability.</p>
+                <p style="opacity: 0.7; font-size: 0.85rem;">Decoding Formula 1 telemetry as a metaphor for precision logistics and global maneuverability.</p>
             </div>
 
         </div>
