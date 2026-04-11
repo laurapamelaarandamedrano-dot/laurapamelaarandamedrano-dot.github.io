@@ -7,27 +7,25 @@
     
     <meta name="description" content="Laura Pamela | Cosmic Capital Agency - Global Strategic Intelligence.">
     <link rel="canonical" href="https://laurapamelaarandamedrano-dot.github.io/" />
+    <meta name="google-site-verification" content="YOUR_VERIFICATION_KEY" />
 
     <style>
         /* 🌿 Base Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --accent: #7a5cff; /* Soft Purple de tus nuevos estilos */
-            --glow: #00FFFF;
+            --accent: #7a5cff; 
+            --cyan: #00FFFF;
+            --pink: #FF007F;
             --gold: #D4AF37;
             --green: #2ECC71;
-            --pink: #FF007F;
+            --bg-body: #fafafa;
         }
 
-        /* 🌸 Body & Background Engine */
+        /* 🌸 Body */
         body {
             font-family: 'Inter', 'Helvetica Neue', sans-serif;
-            background-color: #fafafa;
+            background-color: var(--bg-body);
             color: #2c2c2c;
             line-height: 1.6;
             padding: 40px;
@@ -36,160 +34,71 @@
             position: relative;
         }
 
-        /* EL GLOBO AHORA ES UN DETALLE SUTIL DE FONDO */
+        /* --- BACKGROUND COSMIC ENGINE (Sutil) --- */
         #bg-canvas {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background: radial-gradient(circle at top right, #f0f0f5, #fafafa);
+            background: radial-gradient(circle at center, #f0f0f5 0%, #fafafa 100%);
             display: flex; justify-content: center; align-items: center;
-            opacity: 0.4; pointer-events: none;
+            opacity: 0.35; pointer-events: none;
         }
-
         .data-globe {
-            position: absolute; width: 60vmax; height: 60vmax; border-radius: 50%;
-            background: 
-                repeating-linear-gradient(90deg, transparent 0, transparent 80px, rgba(122, 92, 255, 0.05) 80px, rgba(122, 92, 255, 0.05) 81px),
-                radial-gradient(circle at center, rgba(122, 92, 255, 0.1), transparent);
+            position: absolute; width: 70vmax; height: 70vmax; border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(122, 92, 255, 0.1), transparent);
+            border: 1px solid rgba(122, 92, 255, 0.05);
             animation: rotateGlobe 60s linear infinite;
         }
-
         .globe-halo {
-            position: absolute; width: 62vmax; height: 62vmax; border-radius: 50%;
-            border: 1px solid transparent; border-top: 2px solid var(--accent);
-            filter: blur(8px); animation: rotateGlobe 10s linear infinite;
-            opacity: 0.3;
+            position: absolute; width: 72vmax; height: 72vmax; border-radius: 50%;
+            border-top: 2px solid var(--cyan); filter: blur(10px);
+            animation: rotateGlobe 8s linear infinite;
         }
-
         @keyframes rotateGlobe { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
         /* ✨ Headings */
-        h1, h2, h3 {
-            font-weight: 600;
-            color: #1a1a1a;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-        }
-
-        .subtitle {
-            font-size: 0.9rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 40px;
-            display: block;
-        }
+        h1, h2, h3 { font-weight: 600; color: #1a1a1a; }
+        h1 { font-size: 2.5rem; margin-bottom: 5px; letter-spacing: -1px; text-align: center; }
+        .brand-subtitle { display: block; text-align: center; font-size: 0.8rem; letter-spacing: 6px; color: var(--accent); text-transform: uppercase; margin-bottom: 50px; }
 
         h2 {
-            font-size: 1.6rem;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 5px;
+            font-size: 1.6rem; margin-top: 50px; margin-bottom: 20px;
+            border-bottom: 1px solid #eaeaea; padding-bottom: 8px;
+            display: flex; align-items: center; gap: 10px;
         }
 
-        h3 {
-            font-size: 1.2rem;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
+        h3 { font-size: 1.2rem; margin-top: 25px; margin-bottom: 10px; color: var(--accent); }
 
-        /* 💖 Paragraphs */
-        p {
-            margin-bottom: 15px;
-            color: #444;
-        }
-
-        /* 🌿 Lists */
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 12px;
-            list-style: none;
-            position: relative;
-        }
-        
-        li::before {
-            content: "✦";
-            position: absolute;
-            left: -20px;
-            color: var(--accent);
-        }
+        /* 💖 Content */
+        p { margin-bottom: 15px; color: #444; }
+        ul { margin-left: 20px; margin-bottom: 15px; list-style: none; }
+        li { margin-bottom: 8px; position: relative; }
+        li::before { content: "✦"; position: absolute; left: -20px; color: var(--accent); }
 
         /* 🔗 Links */
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
+        a { color: var(--accent); text-decoration: none; font-weight: 500; transition: 0.2s; }
+        a:hover { text-decoration: underline; color: var(--pink); }
 
-        a:hover {
-            text-decoration: underline;
-        }
+        /* 🧴 Sections & Cards */
+        section { margin-bottom: 60px; padding: 30px; background: #ffffff; border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid #f0f0f0; }
 
-        /* 🧴 Sections */
-        section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background: #ffffff;
-            border-radius: 14px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            border: 1px solid #f0f0f0;
-        }
-
-        /* ✨ Cards (para productos/papers) */
         .card {
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #f0f0f0;
-            transition: all 0.2s ease;
+            background: #fff; padding: 25px; border-radius: 12px;
+            margin-bottom: 20px; border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
         }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-color: var(--accent); }
 
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-            border-color: var(--accent);
-        }
+        /* 🌸 Special Styles */
+        blockquote { font-style: italic; color: #777; border-left: 3px solid #e0d7ff; padding-left: 15px; margin: 25px 0; font-size: 1.1rem; }
+        .highlight { color: var(--accent); font-weight: 600; }
+        .meta-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #999; display: block; margin-bottom: 5px; }
 
-        /* 🌸 Quotes */
-        blockquote {
-            font-style: italic;
-            color: #666;
-            border-left: 3px solid #e0d7ff;
-            padding-left: 15px;
-            margin: 25px 0;
-            font-size: 1.1rem;
-        }
-
-        /* 🫧 Soft accents */
-        .highlight {
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        .meta {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: #999;
-            display: block;
-            margin-top: 5px;
-        }
+        /* Table Style for F1 */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #eee; }
+        th { color: var(--accent); text-transform: uppercase; font-size: 0.7rem; }
 
         /* 🌙 Footer */
-        footer {
-            margin-top: 80px;
-            font-size: 0.9rem;
-            color: #888;
-            text-align: center;
-            padding-bottom: 40px;
-        }
+        footer { margin-top: 100px; font-size: 0.8rem; color: #aaa; text-align: center; padding-bottom: 40px; border-top: 1px solid #eee; padding-top: 20px; }
     </style>
 </head>
 <body>
@@ -201,83 +110,98 @@
 
     <header>
         <h1>Laura Pamela Aranda Medrano</h1>
-        <span class="subtitle">Cosmic Capital Agency</span>
+        <span class="brand-subtitle">Cosmic Capital Agency</span>
     </header>
 
     <section>
         <h2>Executive Profile</h2>
-        <p>Global Strategist and Academic Researcher. Youth Delegate at <span class="highlight">YOUNGA (United Nations)</span>. Specialized in AI-driven political communication, international cosmic law, and gendered global governance reform.</p>
-        <p>Bridging the gap between rigorous academic research and high-performance global aesthetics.</p>
-    </section>
-
-    <section style="border-left: 4px solid var(--accent);">
-        <h2>UN for Dummies: The Global Group Chat 🌎</h2>
-        <p>Dossier #001: International Governance made understandable for the next generation.</p>
-        
-        <div class="card">
-            <h3>The General Assembly (GA)</h3>
-            <p>The global group chat where all 193 countries discuss world tea. Everyone gets 1 vote. Resolutions are <i>recommendations</i>, not laws.</p>
-        </div>
-        
-        <div class="card">
-            <h3>The Security Council (UNSC)</h3>
-            <p>The Admins. Only 15 members. The "Big 5" have <b>Veto Power</b> to delete any resolution they don't like.</p>
-        </div>
-        
-        <blockquote>
-            "Basically, the UN is the only room where the whole world shows up to agree on rules so we don't end the world."
-        </blockquote>
+        <p>Global Strategist and Academic Researcher. Youth Delegate at <span class="highlight">YOUNGA (United Nations)</span>. Bridging AI-driven political communication and cosmic law with high-performance aesthetics.</p>
     </section>
 
     <section>
-        <h2>Strategic Research Archive</h2>
-        <ul>
-            <li>
-                <div class="card">
-                    <span class="meta">IUS-ELECTORAL Digital Journal (2025)</span>
-                    <a href="https://teemich.org.mx/wp-content/uploads/2025/08/Revista-IUS-ELECTORAL-5-1.pdf" target="_blank">Digital Democracy & Algorithmic Trust</a>
-                </div>
-            </li>
-            <li>
-                <div class="card">
-                    <span class="meta">Abogacía Journal (2025)</span>
-                    <a href="https://www.revistaabogacia.com/derecho-internacional-cosmico-y-la-colonizacion-de-marte/" target="_blank">Cosmic Law & Mars Colonization</a>
-                </div>
-            </li>
-            <li>
-                <div class="card">
-                    <span class="meta">JUS Legal Journal (2025)</span>
-                    <a href="https://doi.org/10.5281/zenodo.17112040" target="_blank">Latin America vs Nordic Model: Representation Crisis</a>
-                </div>
-            </li>
-        </ul>
+        <h2>UN for Dummies 🌎</h2>
+        <p class="highlight">International Governance for the Next Generation.</p>
+        <div class="card">
+            <h3>The Global Group Chat</h3>
+            <p><b>GA:</b> All 193 countries. 1 vote each. High-level talk, but resolutions are recommendations.</p>
+            <p><b>UNSC:</b> The Admins. 15 members. The "Big 5" have Veto Power—they can "delete" any resolution.</p>
+        </div>
+    </section>
+
+    <section id="essentials">
+        <h2>🌿 My Essentials: Skincare & Mind</h2>
+        <p>A curated balance between aesthetics, discipline, and self-respect.</p>
+        
+        <div class="card">
+            <span class="meta-tag">Skincare Protocol</span>
+            <h3>Cleanse & Hydrate</h3>
+            <ul>
+                <li>La Roche-Posay Effaclar Gel <a href="https://a.co/d/07MmyAJx" target="_blank">🔗 View</a></li>
+                <li>Thayers Milky Toner <a href="https://a.co/d/0dwRTwyk" target="_blank">🔗 View</a></li>
+                <li>ISDIN Hyaluronic Concentrate <a href="https://a.co/d/07sAlaQo" target="_blank">🔗 View</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="meta-tag">Strategic Reading</span>
+            <h3>Mind & Strategy</h3>
+            <ul>
+                <li>Original Sin (Bleddyn E. Bowen) <a href="https://a.co/d/0c5Yz4Wt" target="_blank">🔗 View</a></li>
+                <li>The Art of War (Sun Tzu) <a href="https://a.co/d/0aWckEbm" target="_blank">🔗 View</a></li>
+            </ul>
+        </div>
+        <blockquote>"Aesthetic is not superficial. It is a form of structure, respect, and identity."</blockquote>
     </section>
 
     <section>
-        <h2 style="color: var(--gold);">The Manifesto: No Tacos, No War</h2>
-        <p><i>"A Manifesto for a Generation That Refuses to Be Silent."</i></p>
-        <p>My open letter to the world, written from the conviction that dignity still matters in the face of structural fear.</p>
-        <a href="https://www.amazon.com.mx/Manifesto-Gen-Attempt-Researcher-Silence-ebook/dp/B0D6V6XGZW" target="_blank">→ Available on Amazon Kindle Edition</a>
+        <h2>✨ Beauty & Balance</h2>
+        <div class="card">
+            <h3>Philosophy of Soft Glam</h3>
+            <p>Beauty is structure, not pressure. Consistency over perfection. Focus on <span class="highlight">Soft Glam</span>: enhancing natural features with intention.</p>
+        </div>
+        <div class="card">
+            <h3>Nutrition for Academia</h3>
+            <p>Focus requires mental clarity. I prioritize Omega-3 (fish), leafy greens, and consistent hydration. <i>Balance, not restriction.</i></p>
+        </div>
     </section>
 
     <section>
-        <h2>Intelligence Modules</h2>
+        <h2>🏁 Formula 1: Precision & Strategy</h2>
+        <p>Understanding the most complex disciplined system in the world.</p>
         <div class="card">
-            <h3 style="color: var(--green);">Eco-Strategy</h3>
-            <p>Analyzing geoeconomic action and sustainable survival in a fragmented global board game.</p>
+            <h3>2026 Grid & Points</h3>
+            <table>
+                <thead><tr><th>Position</th><th>Points</th></tr></thead>
+                <tbody>
+                    <tr><td>1st</td><td>25</td></tr>
+                    <tr><td>2nd</td><td>18</td></tr>
+                    <tr><td>3rd</td><td>15</td></tr>
+                </tbody>
+            </table>
+            <p><small>Removal of MGU-H and shift to 100% sustainable fuels marks the new era.</small></p>
         </div>
+    </section>
+
+    <section>
+        <h2>🐾 Pet Care Protocol</h2>
         <div class="card">
-            <h3 style="color: var(--pink);">Amazon Essentials</h3>
-            <p>Curated tactical gear for high-impact performance and aesthetic intelligence.</p>
+            <h3>Hygiene & Nutrition</h3>
+            <p>Caring for companions is an extension of responsibility. I explore the <b>BARF Diet</b> (Biologically Appropriate Raw Food) and natural soothing rituals.</p>
+            <p class="highlight">«Movement is not just exercise. It is balance.»</p>
         </div>
-        <div class="card">
-            <h3>Cosmic Music & Paws</h3>
-            <p>Sonic landscapes for focus and strategic welfare protocols for elite Chihuahua and Beagle allies.</p>
+    </section>
+
+    <section>
+        <h2>🎧 Cosmic Music Station</h2>
+        <div class="card" style="text-align: center;">
+            <p>The sonic landscape of the empire.</p>
+            <a href="http://spotify.com" target="_blank" class="highlight" style="font-size: 1.2rem;">Open Spotify Portal</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Cosmic Capital Agency | Optimized for Global Strategic Alignment.</p>
+        <p>&copy; 2026 Cosmic Capital Agency | Laura Pamela Aranda Medrano</p>
+        <p style="font-size: 0.6rem; margin-top: 10px;">Rest is not laziness. It is maintenance.</p>
     </footer>
 
 </body>
